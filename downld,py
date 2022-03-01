@@ -1,0 +1,26 @@
+from pytube import YouTube 
+  
+# enter path name where you want to save the downloaded file 
+SAVE_PATH = "E:/" #to_do 
+  
+#  put link of the video to be downloaded 
+link="_____________________"
+  
+try: 
+    
+    yt = YouTube(link) 
+except: 
+    print("Connection Error") 
+# filters out all the files with "mp4" extension 
+mp4files = yt.filter('mp4') 
+  
+#to set the name of the file u can save name whatever u want for  ur  youtube downloaded vedio
+yt.set_filename('__________')  
+  
+
+d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
+try: 
+    d_video.download(SAVE_PATH) 
+except: 
+    print("Some Error!") 
+print('Task Completed!') 
